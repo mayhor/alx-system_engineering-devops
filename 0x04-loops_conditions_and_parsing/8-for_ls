@@ -1,8 +1,10 @@
 #!/usr/bin/env bash
 #displays the content of the current directory, in a list format, where only the part of the name after the first dash is displayed. 
 
-for i in *
-do
-	echo "$i" | cut -d '-' -f2
+for file in *; do
+    if [[ ! $file =~ ^\. ]]; then  # check if file is not hidden
+        name=${file#*-}  # remove part of the name before the first dash
+        echo $name
+    fi
 done
 
