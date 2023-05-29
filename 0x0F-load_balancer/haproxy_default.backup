@@ -1,0 +1,17 @@
+
+defaults
+  mode http
+  timeout client 15s
+  timeout connect 10s
+  timeout server 15s
+  timeout http-request 10s
+
+frontend mayhor-tech-frontend
+    bind *:80
+    default_backend mayhor-tech-backend
+
+backend mayhor-tech-backend
+    balance roundrobin
+    server 151666-web-01 100.26.57.112:80 check
+    server 151666-web-02 54.236.47.161:80 check
+
