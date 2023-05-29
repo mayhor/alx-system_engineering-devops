@@ -1,3 +1,22 @@
+<<<<<<< HEAD
+
+defaults
+  mode http
+  timeout client 15s
+  timeout connect 10s
+  timeout server 15s
+  timeout http-request 10s
+
+frontend mayhor-tech-frontend
+    bind *:80
+    default_backend mayhor-tech-backend
+
+backend mayhor-tech-backend
+    balance roundrobin
+    server 151666-web-01 100.26.57.112:80 check
+    server 151666-web-02 54.236.47.161:80 check
+
+=======
 global
 	log /dev/log	local0
 	log /dev/log	local1 notice
@@ -32,3 +51,4 @@ defaults
 	errorfile 502 /etc/haproxy/errors/502.http
 	errorfile 503 /etc/haproxy/errors/503.http
 	errorfile 504 /etc/haproxy/errors/504.http
+>>>>>>> b3bff97fcac936551c7588c06ebb0f68821147e1
